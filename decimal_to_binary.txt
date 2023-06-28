@@ -1,0 +1,26 @@
+Here's an example of converting a decimal number with fractional components to binary:
+
+Let's say we want to convert the decimal number 13.625 to binary. We can separate the integer and fractional components and convert them separately.
+
+Integer part:
+
+13 / 2 = 6, remainder 1
+6 / 2 = 3, remainder 0
+3 / 2 = 1, remainder 1
+1 / 2 = 0, remainder 1
+
+Reading the remainders from bottom to top, the binary equivalent of the integer part is 1101.
+
+Fractional part:
+
+Multiply the fractional part by 2 and separate the integer and fractional components:
+
+0.625 * 2 = 1.25, integer part 1
+0.25 * 2 = 0.5, integer part 0
+0.5 * 2 = 1.0, integer part 1
+
+Reading the integer parts from top to bottom, the binary equivalent of the fractional part is 101.
+
+Combining the binary equivalent of the integer and fractional parts, we get:
+
+13.625 in decimal = 1101.101 in binary
