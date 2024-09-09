@@ -1,1 +1,0 @@
-/web/cs1521/23T1/activities/remove_vowels/files.ln/remove_vowels.mk

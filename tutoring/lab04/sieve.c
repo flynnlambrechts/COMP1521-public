@@ -1,1 +1,0 @@
-/web/cs1521/24T2/activities/sieve/files.ln/sieve.c

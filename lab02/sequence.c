@@ -1,1 +1,0 @@
-/web/cs1521/23T1/activities/sequence/files.ln/sequence.c

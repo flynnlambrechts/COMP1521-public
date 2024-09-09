@@ -1,1 +1,0 @@
-/web/cs1521/23T1/activities/are_bytes_equal/files.ln/are_bytes_equal.mk

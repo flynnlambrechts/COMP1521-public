@@ -1,1 +1,0 @@
-/web/cs1521/23T1/activities/file_modes/files.ln/file_modes.mk

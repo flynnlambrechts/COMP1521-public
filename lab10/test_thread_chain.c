@@ -1,1 +1,0 @@
-/web/cs1521/23T1/activities/thread_chain/files.ln/test_thread_chain.c

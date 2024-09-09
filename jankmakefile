@@ -1,2 +1,0 @@
-ep: exam_prep.c costly_addition.c
-/usr/local/bin/dcc -pthread

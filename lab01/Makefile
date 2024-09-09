@@ -1,1 +1,0 @@
-/web/cs1521/23T1/resources/Makefile.exercises

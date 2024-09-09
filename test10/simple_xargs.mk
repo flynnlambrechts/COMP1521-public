@@ -1,1 +1,0 @@
-/web/cs1521/23T1/activities/simple_xargs/files.ln/simple_xargs.mk
