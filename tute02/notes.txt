@@ -1,0 +1,2 @@
+1. setting up vscode and cse checkout https://abiram.me/cse-setup
+2. 
