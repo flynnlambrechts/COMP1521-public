@@ -9,4 +9,4 @@ uint32_t extract_middle_6(uint32_t x) {
     return (mask & x) >> 13;
 }
 
-// "100101010"
+
