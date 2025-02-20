@@ -1,4 +1,0 @@
-line 1 wow cool
-line 2 file grep
-line 3 file 
-line 4 wow
