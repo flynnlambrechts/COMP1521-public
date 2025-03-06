@@ -3,10 +3,10 @@ N_SIZE = 10
 main:
 	# $t0 - i
 	
-	li	$t0, 1
-loop_cond:
-	bge	$t0, N_SIZE, loop_end
-loop_body:
+	li	$t0, 0
+main__loop_cond:
+	bge	$t0, N_SIZE, main__loop_end
+main__loop_body:
 	li	$v0, 5
 	syscall
 	move	$t1, $v0
@@ -15,13 +15,14 @@ loop_body:
 	addi	$t2, $t2, numbers
 	sw	$t1, ($t2)
 
-
-
-loop_step:
+main__loop_step:
 	addi	$t0, $t0, 1
-	j	loop_cond
-loop_end:
+	j	main__loop_cond
+main__loop_end:
 
+main__epilogue:
+	li	$v0, 0
+	jr	$ra
 
 	.data
 numbers:
