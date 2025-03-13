@@ -1,6 +1,9 @@
 
 	.text
 main:
+main__prologue:
+	push	$ra
+main__body:
 	li	$a0, 11
 	li	$a1, 13
 	li	$a2, 17
@@ -17,6 +20,7 @@ main:
 	syscall
 main__epilogue:
 	li	$v0, 0
+	pop	$ra
 	jr	$ra
 
 sum4:
