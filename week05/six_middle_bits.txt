@@ -1,0 +1,19 @@
+0b aaaa aaaa aaaa aaaa bbbb bbbb bbbb bbbb
+|
+0b 0000 0000 0000 0111 1110 0000 0000 0000 
+=
+0b 0000 0000 0000 0aaa bbb0 0000 0000 0000 
+>> 13
+=
+0b 0000 0000 0000 0000 0000 0000 00aa abbb
+
+
+alternate method
+
+0b aaaa aaaa aaaa aaaa bbbb bbbb bbbb bbbb
+>> 13
+0b 0000 0000 0000 0aaa aaaa aaaa aaaa abbb
+|
+0b 0000 0000 0000 0000 0000 0000 0011 1111
+=
+0b 0000 0000 0000 0000 0000 0000 00aa abbb
