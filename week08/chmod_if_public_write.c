@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
 
         if (s.st_mode & S_IWOTH) {
             printf("removing public write from %s", argv[i]);
-            // chmod
+            chmod(argv[i], s.st_mode & (~S_IWOTH));
         } else {
             printf("%s is not publically writable", argv[i]);
         }
