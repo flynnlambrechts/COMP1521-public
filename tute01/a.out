@@ -1,0 +1,616 @@
+	.text
+	.file	"q9.c"
+	.globl	main                            # -- Begin function main
+	.p2align	4, 0x90
+	.type	main,@function
+main:                                   # @main
+.Lfunc_begin0:
+	.file	1 "/import/kamen/4/z5360922/Work/COMP1521/tute01" "q9.c"
+	.loc	1 5 0                           # q9.c:5:0
+	.cfi_startproc
+# %bb.0:                                # %entry
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$80, %rsp
+	movl	$0, -4(%rbp)
+	movl	%edi, -8(%rbp)
+	movq	%rsi, -16(%rbp)
+.Ltmp0:
+	.loc	1 6 6 prologue_end              # q9.c:6:6
+	movl	$-1431655766, -20(%rbp)         # imm = 0xAAAAAAAA
+	movl	$0, -20(%rbp)
+.Ltmp1:
+	.loc	1 7 11                          # q9.c:7:11
+	movl	$-1431655766, -24(%rbp)         # imm = 0xAAAAAAAA
+	movl	$0, -24(%rbp)
+.LBB0_1:                                # %for.cond
+                                        # =>This Inner Loop Header: Depth=1
+.Ltmp2:
+	.loc	1 7 18 is_stmt 0                # q9.c:7:18
+	movl	-24(%rbp), %eax
+	.loc	1 7 20                          # q9.c:7:20
+	cmpl	-8(%rbp), %eax
+.Ltmp3:
+	.loc	1 7 2                           # q9.c:7:2
+	jl	.LBB0_3
+# %bb.2:                                # %for.cond.cleanup
+	.loc	1 0 2                           # q9.c:0:2
+	jmp	.LBB0_17
+.LBB0_3:                                # %for.body
+                                        #   in Loop: Header=BB0_1 Depth=1
+.Ltmp4:
+	.loc	1 8 15 is_stmt 1                # q9.c:8:15
+	movq	-16(%rbp), %rsi
+	movq	%rsi, -48(%rbp)                 # 8-byte Spill
+	.loc	1 8 20 is_stmt 0                # q9.c:8:20
+	movslq	-24(%rbp), %rdi
+	.loc	1 8 15                          # q9.c:8:15
+	leaq	(%rsi,%rdi,8), %rcx
+	movq	%rcx, -40(%rbp)                 # 8-byte Spill
+	shlq	$3, %rdi
+	movq	%rcx, %rax
+	movq	%rax, -32(%rbp)                 # 8-byte Spill
+	testq	%rsi, %rsi
+	setne	%al
+	testq	%rcx, %rcx
+	setne	%dl
+	andb	%dl, %al
+	movb	$1, %dl
+	subq	%rsi, %rcx
+	setae	%sil
+	setb	%cl
+	testq	%rdi, %rdi
+	movzbl	%sil, %esi
+	movzbl	%cl, %ecx
+	cmovnsl	%esi, %ecx
+                                        # kill: def $cl killed $cl killed $ecx
+	andb	%dl, %cl
+	andb	%cl, %al
+	testb	$1, %al
+	jne	.LBB0_5
+# %bb.4:                                # %handler.pointer_overflow
+                                        #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 0 15                          # q9.c:0:15
+	movq	-40(%rbp), %rdx                 # 8-byte Reload
+	movq	-48(%rbp), %rsi                 # 8-byte Reload
+	.loc	1 8 15                          # q9.c:8:15
+	leaq	.L__unnamed_1(%rip), %rdi
+	callq	__ubsan_handle_pointer_overflow@PLT
+.LBB0_5:                                # %cont
+                                        #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 0 15                          # q9.c:0:15
+	movq	-32(%rbp), %rcx                 # 8-byte Reload
+	.loc	1 8 15                          # q9.c:8:15
+	cmpq	$0, %rcx
+	setne	%al
+	andq	$7, %rcx
+	cmpq	$0, %rcx
+	sete	%cl
+	andb	%cl, %al
+	testb	$1, %al
+	jne	.LBB0_7
+# %bb.6:                                # %handler.type_mismatch
+                                        #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 0 15                          # q9.c:0:15
+	movq	-32(%rbp), %rsi                 # 8-byte Reload
+	.loc	1 8 15                          # q9.c:8:15
+	leaq	.L__unnamed_2(%rip), %rdi
+	callq	__ubsan_handle_type_mismatch_v1@PLT
+.LBB0_7:                                # %cont1
+                                        #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 0 15                          # q9.c:0:15
+	movq	-32(%rbp), %rax                 # 8-byte Reload
+	.loc	1 8 15                          # q9.c:8:15
+	shrq	$3, %rax
+	cmpb	$0, 2147450880(%rax)
+	je	.LBB0_9
+# %bb.8:
+	.loc	1 0 15                          # q9.c:0:15
+	movq	-32(%rbp), %rdi                 # 8-byte Reload
+	.loc	1 8 15                          # q9.c:8:15
+	callq	__asan_report_load8@PLT
+.LBB0_9:                                #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 0 15                          # q9.c:0:15
+	movq	-32(%rbp), %rax                 # 8-byte Reload
+	.loc	1 8 15                          # q9.c:8:15
+	movq	(%rax), %rax
+	movq	%rax, -56(%rbp)                 # 8-byte Spill
+	.loc	1 8 10                          # q9.c:8:10
+	cmpq	$0, %rax
+	jne	.LBB0_11
+# %bb.10:                               # %handler.nonnull_arg
+                                        #   in Loop: Header=BB0_1 Depth=1
+	leaq	.L__unnamed_3(%rip), %rdi
+	callq	__ubsan_handle_nonnull_arg@PLT
+.LBB0_11:                               # %cont2
+                                        #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 0 10                          # q9.c:0:10
+	movq	-56(%rbp), %rdi                 # 8-byte Reload
+	.loc	1 8 10                          # q9.c:8:10
+	callq	atoi@PLT
+	movl	%eax, %ecx
+	movl	%ecx, -68(%rbp)                 # 4-byte Spill
+	.loc	1 8 7                           # q9.c:8:7
+	movl	-20(%rbp), %eax
+	movl	%eax, -64(%rbp)                 # 4-byte Spill
+	addl	%ecx, %eax
+	movl	%eax, -60(%rbp)                 # 4-byte Spill
+	seto	%al
+	xorb	$-1, %al
+	testb	$1, %al
+	jne	.LBB0_13
+# %bb.12:                               # %handler.add_overflow
+                                        #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 0 7                           # q9.c:0:7
+	movl	-68(%rbp), %eax                 # 4-byte Reload
+	movl	-64(%rbp), %ecx                 # 4-byte Reload
+	.loc	1 8 7                           # q9.c:8:7
+	movl	%ecx, %ecx
+	movl	%ecx, %esi
+	movl	%eax, %eax
+	movl	%eax, %edx
+	leaq	.L__unnamed_4(%rip), %rdi
+	callq	__ubsan_handle_add_overflow@PLT
+.LBB0_13:                               # %cont3
+                                        #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 0 7                           # q9.c:0:7
+	movl	-60(%rbp), %eax                 # 4-byte Reload
+	.loc	1 8 7                           # q9.c:8:7
+	movl	%eax, -20(%rbp)
+.Ltmp5:
+# %bb.14:                               # %for.inc
+                                        #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 7 29 is_stmt 1                # q9.c:7:29
+	movl	-24(%rbp), %eax
+	movl	%eax, -76(%rbp)                 # 4-byte Spill
+	incl	%eax
+	movl	%eax, -72(%rbp)                 # 4-byte Spill
+	seto	%al
+	xorb	$-1, %al
+	testb	$1, %al
+	jne	.LBB0_16
+# %bb.15:                               # %handler.add_overflow4
+                                        #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 0 29 is_stmt 0                # q9.c:0:29
+	movl	-76(%rbp), %eax                 # 4-byte Reload
+	.loc	1 7 29                          # q9.c:7:29
+	movl	%eax, %eax
+	movl	%eax, %esi
+	leaq	.L__unnamed_5(%rip), %rdi
+	movl	$1, %edx
+	callq	__ubsan_handle_add_overflow@PLT
+.LBB0_16:                               # %cont5
+                                        #   in Loop: Header=BB0_1 Depth=1
+	.loc	1 0 29                          # q9.c:0:29
+	movl	-72(%rbp), %eax                 # 4-byte Reload
+	.loc	1 7 29                          # q9.c:7:29
+	movl	%eax, -24(%rbp)
+	.loc	1 7 2                           # q9.c:7:2
+	jmp	.LBB0_1
+.Ltmp6:
+.LBB0_17:                               # %for.end
+	.loc	1 10 49 is_stmt 1               # q9.c:10:49
+	movl	-20(%rbp), %esi
+	.loc	1 10 2 is_stmt 0                # q9.c:10:2
+	leaq	.str(%rip), %rdi
+	movb	$0, %al
+	callq	printf@PLT
+	.loc	1 11 2 is_stmt 1                # q9.c:11:2
+	xorl	%eax, %eax
+	addq	$80, %rsp
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Ltmp7:
+.Lfunc_end0:
+	.size	main, .Lfunc_end0-main
+	.cfi_endproc
+                                        # -- End function
+	.section	.text.asan.module_ctor,"axR",@progbits
+	.p2align	4, 0x90                         # -- Begin function asan.module_ctor
+	.type	asan.module_ctor,@function
+asan.module_ctor:                       # @asan.module_ctor
+.Lfunc_begin1:
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	callq	__asan_init@PLT
+	callq	__asan_version_mismatch_check_v8@PLT
+	leaq	__unnamed_6(%rip), %rdi
+	movl	$1, %esi
+	callq	__asan_register_globals@PLT
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end1:
+	.size	asan.module_ctor, .Lfunc_end1-asan.module_ctor
+	.cfi_endproc
+                                        # -- End function
+	.section	.text.asan.module_dtor,"axR",@progbits
+	.p2align	4, 0x90                         # -- Begin function asan.module_dtor
+	.type	asan.module_dtor,@function
+asan.module_dtor:                       # @asan.module_dtor
+.Lfunc_begin2:
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	leaq	__unnamed_6(%rip), %rdi
+	movl	$1, %esi
+	callq	__asan_unregister_globals@PLT
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end2:
+	.size	asan.module_dtor, .Lfunc_end2-asan.module_dtor
+	.cfi_endproc
+                                        # -- End function
+	.type	.L.src,@object                  # @.src
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.src:
+	.asciz	"q9.c"
+	.size	.L.src, 5
+
+	.type	.L__unnamed_1,@object           # @0
+	.data
+	.p2align	3
+.L__unnamed_1:
+	.quad	.L.src
+	.long	8                               # 0x8
+	.long	15                              # 0xf
+	.size	.L__unnamed_1, 16
+
+	.type	.L__unnamed_7,@object           # @1
+	.section	.rodata,"a",@progbits
+	.p2align	3
+.L__unnamed_7:
+	.short	65535                           # 0xffff
+	.short	0                               # 0x0
+	.asciz	"'char *'"
+	.zero	1
+	.size	.L__unnamed_7, 14
+
+	.type	.L__unnamed_2,@object           # @2
+	.data
+	.p2align	4
+.L__unnamed_2:
+	.quad	.L.src
+	.long	8                               # 0x8
+	.long	15                              # 0xf
+	.quad	.L__unnamed_7
+	.byte	3                               # 0x3
+	.byte	0                               # 0x0
+	.zero	6
+	.size	.L__unnamed_2, 32
+
+	.type	.L.src.1,@object                # @.src.1
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.src.1:
+	.asciz	"/usr/include/stdlib.h"
+	.size	.L.src.1, 22
+
+	.type	.L__unnamed_3,@object           # @3
+	.data
+	.p2align	4
+.L__unnamed_3:
+	.quad	.L.src
+	.long	8                               # 0x8
+	.long	15                              # 0xf
+	.quad	.L.src.1
+	.long	106                             # 0x6a
+	.long	33                              # 0x21
+	.long	1                               # 0x1
+	.zero	4
+	.size	.L__unnamed_3, 40
+
+	.type	.L__unnamed_8,@object           # @4
+	.section	.rodata,"a",@progbits
+	.p2align	3
+.L__unnamed_8:
+	.short	0                               # 0x0
+	.short	11                              # 0xb
+	.asciz	"'int'"
+	.size	.L__unnamed_8, 10
+
+	.type	.L__unnamed_4,@object           # @5
+	.data
+	.p2align	4
+.L__unnamed_4:
+	.quad	.L.src
+	.long	8                               # 0x8
+	.long	7                               # 0x7
+	.quad	.L__unnamed_8
+	.size	.L__unnamed_4, 24
+
+	.type	.L__unnamed_5,@object           # @6
+	.p2align	4
+.L__unnamed_5:
+	.quad	.L.src
+	.long	7                               # 0x7
+	.long	29                              # 0x1d
+	.quad	.L__unnamed_8
+	.size	.L__unnamed_5, 24
+
+	.type	.str,@object                    # @.str
+	.section	.rodata,"a",@progbits
+	.p2align	5
+.str:
+	.asciz	"sum of command-line arguments = %d\n"
+	.zero	60
+	.size	.str, 96
+
+	.type	.L___asan_gen_,@object          # @___asan_gen_
+.L___asan_gen_:
+	.asciz	"q9.c"
+	.size	.L___asan_gen_, 5
+
+	.type	.L___asan_gen_.2,@object        # @___asan_gen_.2
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L___asan_gen_.2:
+	.asciz	"<string literal>"
+	.size	.L___asan_gen_.2, 17
+
+	.type	.L___asan_gen_.3,@object        # @___asan_gen_.3
+.L___asan_gen_.3:
+	.asciz	"q9.c"
+	.size	.L___asan_gen_.3, 5
+
+	.type	.L___asan_gen_.4,@object        # @___asan_gen_.4
+	.section	.data.rel.ro,"aw",@progbits
+	.p2align	3
+.L___asan_gen_.4:
+	.quad	.L___asan_gen_.3
+	.long	10                              # 0xa
+	.long	9                               # 0x9
+	.size	.L___asan_gen_.4, 16
+
+	.type	__unnamed_6,@object             # @7
+	.data
+	.p2align	4
+__unnamed_6:
+	.quad	.str
+	.quad	36                              # 0x24
+	.quad	96                              # 0x60
+	.quad	.L___asan_gen_.2
+	.quad	.L___asan_gen_
+	.quad	0                               # 0x0
+	.quad	.L___asan_gen_.4
+	.quad	-1                              # 0xffffffffffffffff
+	.size	__unnamed_6, 64
+
+	.section	.init_array.1,"aw",@init_array
+	.p2align	3
+	.quad	asan.module_ctor
+	.section	.fini_array.1,"aw",@fini_array
+	.p2align	3
+	.quad	asan.module_dtor
+	.section	.debug_abbrev,"",@progbits
+	.byte	1                               # Abbreviation Code
+	.byte	17                              # DW_TAG_compile_unit
+	.byte	1                               # DW_CHILDREN_yes
+	.byte	37                              # DW_AT_producer
+	.byte	14                              # DW_FORM_strp
+	.byte	19                              # DW_AT_language
+	.byte	5                               # DW_FORM_data2
+	.byte	3                               # DW_AT_name
+	.byte	14                              # DW_FORM_strp
+	.byte	16                              # DW_AT_stmt_list
+	.byte	23                              # DW_FORM_sec_offset
+	.byte	27                              # DW_AT_comp_dir
+	.byte	14                              # DW_FORM_strp
+	.byte	17                              # DW_AT_low_pc
+	.byte	1                               # DW_FORM_addr
+	.byte	18                              # DW_AT_high_pc
+	.byte	6                               # DW_FORM_data4
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	2                               # Abbreviation Code
+	.byte	46                              # DW_TAG_subprogram
+	.byte	1                               # DW_CHILDREN_yes
+	.byte	17                              # DW_AT_low_pc
+	.byte	1                               # DW_FORM_addr
+	.byte	18                              # DW_AT_high_pc
+	.byte	6                               # DW_FORM_data4
+	.byte	64                              # DW_AT_frame_base
+	.byte	24                              # DW_FORM_exprloc
+	.byte	3                               # DW_AT_name
+	.byte	14                              # DW_FORM_strp
+	.byte	58                              # DW_AT_decl_file
+	.byte	11                              # DW_FORM_data1
+	.byte	59                              # DW_AT_decl_line
+	.byte	11                              # DW_FORM_data1
+	.byte	39                              # DW_AT_prototyped
+	.byte	25                              # DW_FORM_flag_present
+	.byte	73                              # DW_AT_type
+	.byte	19                              # DW_FORM_ref4
+	.byte	63                              # DW_AT_external
+	.byte	25                              # DW_FORM_flag_present
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	3                               # Abbreviation Code
+	.byte	5                               # DW_TAG_formal_parameter
+	.byte	0                               # DW_CHILDREN_no
+	.byte	2                               # DW_AT_location
+	.byte	24                              # DW_FORM_exprloc
+	.byte	3                               # DW_AT_name
+	.byte	14                              # DW_FORM_strp
+	.byte	58                              # DW_AT_decl_file
+	.byte	11                              # DW_FORM_data1
+	.byte	59                              # DW_AT_decl_line
+	.byte	11                              # DW_FORM_data1
+	.byte	73                              # DW_AT_type
+	.byte	19                              # DW_FORM_ref4
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	4                               # Abbreviation Code
+	.byte	52                              # DW_TAG_variable
+	.byte	0                               # DW_CHILDREN_no
+	.byte	2                               # DW_AT_location
+	.byte	24                              # DW_FORM_exprloc
+	.byte	3                               # DW_AT_name
+	.byte	14                              # DW_FORM_strp
+	.byte	58                              # DW_AT_decl_file
+	.byte	11                              # DW_FORM_data1
+	.byte	59                              # DW_AT_decl_line
+	.byte	11                              # DW_FORM_data1
+	.byte	73                              # DW_AT_type
+	.byte	19                              # DW_FORM_ref4
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	5                               # Abbreviation Code
+	.byte	11                              # DW_TAG_lexical_block
+	.byte	1                               # DW_CHILDREN_yes
+	.byte	17                              # DW_AT_low_pc
+	.byte	1                               # DW_FORM_addr
+	.byte	18                              # DW_AT_high_pc
+	.byte	6                               # DW_FORM_data4
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	6                               # Abbreviation Code
+	.byte	36                              # DW_TAG_base_type
+	.byte	0                               # DW_CHILDREN_no
+	.byte	3                               # DW_AT_name
+	.byte	14                              # DW_FORM_strp
+	.byte	62                              # DW_AT_encoding
+	.byte	11                              # DW_FORM_data1
+	.byte	11                              # DW_AT_byte_size
+	.byte	11                              # DW_FORM_data1
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	7                               # Abbreviation Code
+	.byte	15                              # DW_TAG_pointer_type
+	.byte	0                               # DW_CHILDREN_no
+	.byte	73                              # DW_AT_type
+	.byte	19                              # DW_FORM_ref4
+	.byte	0                               # EOM(1)
+	.byte	0                               # EOM(2)
+	.byte	0                               # EOM(3)
+	.section	.debug_info,"",@progbits
+.Lcu_begin0:
+	.long	.Ldebug_info_end0-.Ldebug_info_start0 # Length of Unit
+.Ldebug_info_start0:
+	.short	4                               # DWARF version number
+	.long	.debug_abbrev                   # Offset Into Abbrev. Section
+	.byte	8                               # Address Size (in bytes)
+	.byte	1                               # Abbrev [1] 0xb:0x98 DW_TAG_compile_unit
+	.long	.Linfo_string0                  # DW_AT_producer
+	.short	12                              # DW_AT_language
+	.long	.Linfo_string1                  # DW_AT_name
+	.long	.Lline_table_start0             # DW_AT_stmt_list
+	.long	.Linfo_string2                  # DW_AT_comp_dir
+	.quad	.Lfunc_begin0                   # DW_AT_low_pc
+	.long	.Lfunc_end0-.Lfunc_begin0       # DW_AT_high_pc
+	.byte	2                               # Abbrev [2] 0x2a:0x60 DW_TAG_subprogram
+	.quad	.Lfunc_begin0                   # DW_AT_low_pc
+	.long	.Lfunc_end0-.Lfunc_begin0       # DW_AT_high_pc
+	.byte	1                               # DW_AT_frame_base
+	.byte	86
+	.long	.Linfo_string3                  # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	5                               # DW_AT_decl_line
+                                        # DW_AT_prototyped
+	.long	138                             # DW_AT_type
+                                        # DW_AT_external
+	.byte	3                               # Abbrev [3] 0x43:0xe DW_TAG_formal_parameter
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	120
+	.long	.Linfo_string5                  # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	5                               # DW_AT_decl_line
+	.long	138                             # DW_AT_type
+	.byte	3                               # Abbrev [3] 0x51:0xe DW_TAG_formal_parameter
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	112
+	.long	.Linfo_string6                  # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	5                               # DW_AT_decl_line
+	.long	145                             # DW_AT_type
+	.byte	4                               # Abbrev [4] 0x5f:0xe DW_TAG_variable
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	108
+	.long	.Linfo_string8                  # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	6                               # DW_AT_decl_line
+	.long	138                             # DW_AT_type
+	.byte	5                               # Abbrev [5] 0x6d:0x1c DW_TAG_lexical_block
+	.quad	.Ltmp1                          # DW_AT_low_pc
+	.long	.Ltmp6-.Ltmp1                   # DW_AT_high_pc
+	.byte	4                               # Abbrev [4] 0x7a:0xe DW_TAG_variable
+	.byte	2                               # DW_AT_location
+	.byte	145
+	.byte	104
+	.long	.Linfo_string9                  # DW_AT_name
+	.byte	1                               # DW_AT_decl_file
+	.byte	7                               # DW_AT_decl_line
+	.long	138                             # DW_AT_type
+	.byte	0                               # End Of Children Mark
+	.byte	0                               # End Of Children Mark
+	.byte	6                               # Abbrev [6] 0x8a:0x7 DW_TAG_base_type
+	.long	.Linfo_string4                  # DW_AT_name
+	.byte	5                               # DW_AT_encoding
+	.byte	4                               # DW_AT_byte_size
+	.byte	7                               # Abbrev [7] 0x91:0x5 DW_TAG_pointer_type
+	.long	150                             # DW_AT_type
+	.byte	7                               # Abbrev [7] 0x96:0x5 DW_TAG_pointer_type
+	.long	155                             # DW_AT_type
+	.byte	6                               # Abbrev [6] 0x9b:0x7 DW_TAG_base_type
+	.long	.Linfo_string7                  # DW_AT_name
+	.byte	6                               # DW_AT_encoding
+	.byte	1                               # DW_AT_byte_size
+	.byte	0                               # End Of Children Mark
+.Ldebug_info_end0:
+	.section	.debug_str,"MS",@progbits,1
+.Linfo_string0:
+	.asciz	"Debian clang version 14.0.6"   # string offset=0
+.Linfo_string1:
+	.asciz	"q9.c"                          # string offset=28
+.Linfo_string2:
+	.asciz	"/import/kamen/4/z5360922/Work/COMP1521/tute01" # string offset=33
+.Linfo_string3:
+	.asciz	"main"                          # string offset=79
+.Linfo_string4:
+	.asciz	"int"                           # string offset=84
+.Linfo_string5:
+	.asciz	"argc"                          # string offset=88
+.Linfo_string6:
+	.asciz	"argv"                          # string offset=93
+.Linfo_string7:
+	.asciz	"char"                          # string offset=98
+.Linfo_string8:
+	.asciz	"sum"                           # string offset=103
+.Linfo_string9:
+	.asciz	"i"                             # string offset=107
+	.ident	"Debian clang version 14.0.6"
+	.section	".note.GNU-stack","",@progbits
+	.addrsig
+	.addrsig_sym atoi
+	.addrsig_sym __ubsan_handle_pointer_overflow
+	.addrsig_sym __ubsan_handle_type_mismatch_v1
+	.addrsig_sym __ubsan_handle_nonnull_arg
+	.addrsig_sym __ubsan_handle_add_overflow
+	.addrsig_sym printf
+	.addrsig_sym __asan_report_load8
+	.addrsig_sym __asan_register_globals
+	.addrsig_sym __asan_unregister_globals
+	.addrsig_sym __asan_init
+	.addrsig_sym asan.module_ctor
+	.addrsig_sym __asan_version_mismatch_check_v8
+	.addrsig_sym asan.module_dtor
+	.addrsig_sym .str
+	.addrsig_sym .L___asan_gen_
+	.addrsig_sym __unnamed_6
+	.section	.debug_line,"",@progbits
+.Lline_table_start0:
