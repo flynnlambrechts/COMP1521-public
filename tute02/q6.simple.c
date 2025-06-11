@@ -10,9 +10,14 @@ int main(void) {
 	scanf("%d", &x);
 
 	char* message = "small/big\n";
-	if (x > 100 && x < 1000) {
-		message = "medium";
-	}
+	// if (x > 100 && x < 1000) {
 
+	// if (x <= 100 || x >= 1000)
+	if (x <= 100)
+		goto print_string;
+	if (x >= 1000)
+		goto print_string;
+	message = "medium";
+print_string:
 	printf("%s", message);
 }
