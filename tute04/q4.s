@@ -9,6 +9,12 @@
 MAP_SIZE = 5
 N_POINTS = 4
 
+SIZEOF_INT = 4
+
+POINT_ROW_OFFSET = 0
+POINT_COL_OFFSET = POINT_ROW_OFFSET + SIZEOF_INT
+SIZEOF_POINT = POINT_COL_OFFSET + SIZEOF_INT
+
 .text
 
 main:
@@ -26,6 +32,21 @@ points_loop_init:			# for (int i = 0; i < N_POINTS; i++) {
 
 points_loop_cond:
 	bge	$t0, N_POINTS, points_loop_end	# if (i >= N_POINTS)
+
+
+	mul	$t4, $t0, SIZEOF_POINT
+	la	$t5, my_points
+	add	$t4, $t4, $t5
+
+	lw	$t1, POINT_ROW_OFFSET($t4)
+	lw	$t2, POINT_COL_OFFSET($t4)
+
+	mul	$t4, $t1, MAP_SIZE
+	add	$t4, $t4, $t2
+	mul	$t4, $t4, SIZEOF_INT
+
+	lw	$t3, topography_grid($t4)
+
 
 					# TODO: Complete these three!
 					# int row = my_points[i].row;
